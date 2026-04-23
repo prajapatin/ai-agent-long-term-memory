@@ -9,9 +9,9 @@ AI agents forget everything between sessions. Every conversation starts from zer
 ## The Solution
 
 [Hindsight](https://hindsight.vectorize.io/) provides a purpose-built memory system for AI agents with:
-- **`retain()`** — Store memories (facts, experiences, observations)
-- **`recall()`** — Search memories using multi-strategy retrieval (TEMPR)
-- **`reflect()`** — Generate contextual, disposition-aware responses from memory
+- **retain()**: Store memories (facts, experiences, observations)
+- **recall()**: Search memories using multi-strategy retrieval (TEMPR)
+- **reflect()**: Generate contextual, disposition-aware responses from memory
 
 ## Demo Scenario: DevOps Incident Response
 
@@ -161,18 +161,18 @@ The factory returns a `BaseChatModel` instance — all LangChain agents use the 
 
 After running the demo, open `http://localhost:9999` to explore:
 
-- **Memory Banks** — See the 3 agent-specific banks and their accumulated knowledge
-- **Observations** — Hindsight automatically consolidates raw facts into evidence-grounded beliefs
-- **Entity Graph** — Visualize relationships between services, incidents, and fixes
+- **Memory Banks**: See the 3 agent-specific banks and their accumulated knowledge
+- **Observations**: Hindsight automatically consolidates raw facts into evidence-grounded beliefs
+- **Entity Graph**: Visualize relationships between services, incidents, and fixes
 
 ## Key Hindsight Concepts Demonstrated
 
-1. **`retain()`** — Agents explicitly store findings via the `hindsight_retain` tool after each analysis
-2. **`recall()`** — Agents search raw memories via the `hindsight_recall` tool for specific facts
-3. **`reflect()`** — Agents synthesize contextual answers via `hindsight_reflect` for disposition-aware reasoning
-4. **Observation Consolidation** — Overlapping facts merge into durable observations with evidence tracking
-5. **Per-Agent Banks** — Each agent builds isolated expertise (triage patterns ≠ remediation playbooks)
-6. **Bank Missions** — Guide how Hindsight organizes and prioritizes knowledge
+1. **retain()**: Agents explicitly store findings via the `hindsight_retain` tool after each analysis
+2. **recall()**: Agents search raw memories via the `hindsight_recall` tool for specific facts
+3. **reflect()**: Agents synthesize contextual answers via `hindsight_reflect` for disposition-aware reasoning
+4. **Observation Consolidation**: Overlapping facts merge into durable observations with evidence tracking
+5. **Per-Agent Banks**: Each agent builds isolated expertise (triage patterns ≠ remediation playbooks)
+6. **Bank Missions**: Guide how Hindsight organizes and prioritizes knowledge
 
 ## Links
 
