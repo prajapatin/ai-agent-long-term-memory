@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  hindsight:
+    image: ghcr.io/vectorize-io/hindsight:latest
+    pull_policy: always
+    ports:
+      - "8888:8888"   # Hindsight API
+      - "9999:9999"   # Control Plane (Web UI)
+    environment:
+      - HINDSIGHT_API_LLM_PROVIDER=${HINDSIGHT_LLM_PROVIDER:-groq}
+      - HINDSIGHT_API_LLM_API_KEY=${HINDSIGHT_LLM_API_KEY}
+      - HINDSIGHT_API_LLM_MODEL=${HINDSIGHT_LLM_MODEL:-llama-3.3-70b-versatile}
+    volumes:
+      - hindsight_data:/home/hindsight/.pg0
+    restart: unless-stopped
+
+volumes:
+  hindsight_data:
