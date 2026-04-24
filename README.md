@@ -1,6 +1,6 @@
 # AI Agent Long-Term Memory with Hindsight
 
-A technical blog companion project demonstrating **persistent memory for AI agents** using [Hindsight](https://hindsight.vectorize.io/) and [LangChain](https://python.langchain.com/).
+A technical blog companion project demonstrating **persistent memory for AI agents** using [Hindsight](https://hindsight.vectorize.io/), [LangGraph](https://langchain-ai.github.io/langgraph/), and [LangChain](https://python.langchain.com/). This project leverages LangGraph to create a more robust and efficient AI agent memory system.
 
 ## The Problem
 
@@ -15,13 +15,13 @@ AI agents forget everything between sessions. Every conversation starts from zer
 
 ## Demo Scenario: DevOps Incident Response
 
-Three specialized LangChain ReAct agents collaborate on production incidents, each with its own Hindsight memory bank:
+Three specialized LangGraph ReAct agents collaborate on production incidents, each with its own Hindsight memory bank:
 
 | Agent | Role | Memory Bank |
 |-------|------|-------------|
-| **Incident Triage Analyst** | Classifies severity, detects recurring patterns | `devops-incident-agent-triage` |
-| **Root Cause Analysis Engineer** | Investigates causes, recalls known failure modes | `devops-incident-agent-rca` |
-| **Remediation Specialist** | Proposes fixes, remembers what worked before | `devops-incident-agent-remediation` |
+| **Incident Triage Analyst** | Classifies severity, detects recurring patterns | `devops-incident-agents-triage` |
+| **Root Cause Analysis Engineer** | Investigates causes, recalls known failure modes | `devops-incident-agents-rca` |
+| **Remediation Specialist** | Proposes fixes, remembers what worked before | `devops-incident-agents-remediation` |
 
 ### Memory Accumulation Across Runs
 
@@ -44,7 +44,7 @@ Run 3: "Recurring Latency Spike"
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│           LangChain Agent Pipeline                  │
+│           LangGraph Agent Pipeline                  │
 │              (Sequential Orchestrator)              │
 │                                                     │
 │  ┌──────────┐  ┌──────────┐  ┌───────────────┐      │
@@ -133,11 +133,11 @@ This project uses an **abstract LLM factory** (`src/llm_provider.py`) that retur
 
 | Provider | Environment Variables | Model |
 |----------|----------------------|-------|
-| **OpenAI** | `LLM_PROVIDER=openai`, `OPENAI_API_KEY` | `ChatOpenAI` (gpt-4o-mini) |
+| **OpenAI** | `LLM_PROVIDER=openai`, `OPENAI_API_KEY` | `ChatOpenAI` (gpt-4.1-mini) |
 | **Groq** | `LLM_PROVIDER=groq`, `GROQ_API_KEY` | `ChatGroq` (llama-3.3-70b-versatile) |
 | **Ollama** | `LLM_PROVIDER=ollama`, `OLLAMA_BASE_URL`, `OLLAMA_MODEL` | `ChatOllama` (llama3) |
 
-The factory returns a `BaseChatModel` instance — all LangChain agents use the same interface regardless of provider.
+The factory returns a `BaseChatModel` instance — all LangGraph agents use the same interface regardless of provider.
 
 > **Note**: The Hindsight server uses its own LLM provider (configured via `HINDSIGHT_LLM_*` env vars in `.env`). This is independent of the agent LLM provider.
 
@@ -151,7 +151,7 @@ The factory returns a `BaseChatModel` instance — all LangChain agents use the 
 │   ├── llm_provider.py         # Abstract LLM factory (OpenAI/Groq/Ollama)
 │   ├── config.py               # Hindsight connection + bank configuration
 │   ├── hindsight_tools.py      # LangChain tools: reflect, recall, retain
-│   ├── agents.py               # 3 LangChain ReAct agents with Hindsight tools
+│   ├── agents.py               # 3 LangGraph ReAct agents with Hindsight tools
 │   ├── tasks.py                # Prompt templates for each pipeline stage
 │   ├── orchestrator.py          # Sequential pipeline orchestrator
 │   └── main.py                 # CLI entry point

@@ -38,9 +38,9 @@ def run_pipeline(incident: str) -> dict:
       3. Remediation  → proposes fixes, references what worked before
 
     Each agent has its own Hindsight memory bank:
-      - devops-incident-agent-triage
-      - devops-incident-agent-rca
-      - devops-incident-agent-remediation
+      - devops-incident-agents-triage
+      - devops-incident-agents-rca
+      - devops-incident-agents-remediation
 
     Args:
         incident: The incident description text.
