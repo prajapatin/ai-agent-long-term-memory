@@ -4,7 +4,7 @@ A technical blog companion project demonstrating **persistent memory for AI agen
 
 ## The Problem
 
-AI agents forget everything between sessions. Every conversation starts from zero — no context about previous incidents, no learned patterns, no institutional knowledge. This fundamentally limits what AI agents can do in production environments.
+AI agents forget everything between sessions. Every conversation starts from zero, no context about previous incidents, no learned patterns, no institutional knowledge. This fundamentally limits what AI agents can do in production environments.
 
 ## The Solution
 
