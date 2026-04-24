@@ -26,7 +26,7 @@ def make_reflect_tool(bank_id: str, context: str | None = None):
     Create a LangChain tool that calls Hindsight reflect() for a given bank.
 
     reflect() returns a synthesized, disposition-aware answer drawing on all
-    relevant memories — not just raw facts.
+    relevant memories, not just raw facts.
     """
 
     @tool(f"hindsight_reflect_{bank_id}")

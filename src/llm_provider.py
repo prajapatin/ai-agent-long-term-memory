@@ -2,7 +2,7 @@
 Abstract LLM factory layer for LangChain agents.
 
 Initializes and returns a LangChain chat model based on the LLM_PROVIDER
-environment variable. Supports 'openai', 'groq', or 'ollama' — swap
+environment variable. Supports 'openai', 'groq', or 'ollama', swap
 providers without touching agent code.
 """
 

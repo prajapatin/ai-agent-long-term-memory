@@ -1,7 +1,7 @@
 """
 Orchestrator for the DevOps Incident Response pipeline.
 
-Runs three LangGraph ReAct agents sequentially — triage → RCA → remediation —
+Runs three LangGraph ReAct agents sequentially, triage -> RCA -> remediation,
 passing each agent's output to the next. Each agent uses Hindsight tools
 to recall/retain knowledge across runs.
 """
